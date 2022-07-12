@@ -1,6 +1,3 @@
-#########################################
-# Required Python Packages
-#########################################
 import io
 from tkinter.messagebox import NO
 import joblib
@@ -34,18 +31,13 @@ from email import encoders
 import pickle
 
 
-########################################
-# Declaring Gloabal Variables
-########################################
 best_model = None 
 G_Accuracy = 0
 
-##########################################
-# Function name : Write_log
-# Description :   Create the log file and write the script information
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+
+#  Write_log
+#  Create the log file and write the script information
+
 def Write_log(model,Accuracy):
     dirName = "LogFiles"
     if not os.path.isdir(dirName):
@@ -69,13 +61,9 @@ def Write_log(model,Accuracy):
     return Logfile_path
 
 
-#########################################
-# Function name : VotingClassifier
-# Description :  Train the data Using VotingClassifier() algoritham
-# Output : Best Accuracy with model 
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+#  VotingClassifier
+#  Train the data Using VotingClassifier() algoritham
+
 def VotingClassifier_algoritham():
     print("Voting Classifier")
     X_train = None
@@ -101,14 +89,9 @@ def VotingClassifier_algoritham():
 
 
 
+# RandomForest
+# Train the data Using RandomForestClassifier() algoritham
 
-#########################################
-# Function name : RandomForest
-# Description :  Train the data Using RandomForestClassifier() algoritham
-# Output : Best Accuracy with model 
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
 def RandomForest():
     #print("RandomForest")
     X_train = None
@@ -129,13 +112,10 @@ def RandomForest():
 
     return Max_Accuracy,Best_model
 
-#########################################
-# Function name : Logistic_Regression
-# Description :  Train the data Using LogisticRegression() algoritham
-# Output : Best Accuracy with model 
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+
+# Logistic_Regression
+# Train the data Using LogisticRegression() algoritham
+
 def Logistic_Regression():
     #print("Logistic Regression")
     X_train = None
@@ -153,13 +133,10 @@ def Logistic_Regression():
     return Max_Accuracy,Best_model
 
 
-#########################################
-# Function name : DecisionTreeClassifier_algorithm
-# Description :  Train the data Using DecisionTreeClassifier() algoritham
-# Output : Best Accuracy with model 
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+
+# DecisionTreeClassifier_algorithm
+# Train the data Using DecisionTreeClassifier() algoritham
+
 def DecisionTreeClassifier_algorithm():
     #print("Decession tree classifier")
     X_train = None
@@ -182,13 +159,9 @@ def DecisionTreeClassifier_algorithm():
 
 
 
-#########################################
-# Function name : K_nearest_neighbour_algorithm
-# Description :  Train the data Using KNeighborsClassifier() algoritham
-# Output : Best Accuracy with model 
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+# K_nearest_neighbour_algorithm
+# Train the data Using KNeighborsClassifier() algoritham
+
 def K_nearest_neighbour_algorithm():
     #print("In the KNN")
     X_train = None
@@ -209,13 +182,10 @@ def K_nearest_neighbour_algorithm():
 
     return Max_Accuracy,Best_model       
 
-#########################################
-# Function name : Data_Manipulating
-# Description :  Function will ready the data for the Training
-# Input : Path Of CSV File  
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+
+# Data_Manipulating
+# Function will ready the data for the Training
+
 def Data_Manipulating():
     X_train = None
     X_test = None
@@ -242,14 +212,10 @@ def Data_Manipulating():
 
 
 flag = True
-#########################################
-# Function name : Train_And_Test_data
-# Description :  Train the model using different algoritham
-# Input : X_train, X_test, Y_train, Y_test
-# Output : Best Model 
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+
+# Train_And_Test_data
+# Train the model using different algoritham
+
 def Train_And_Test_Data():
     Greater_Accuracy = 0
     global G_Accuracy
@@ -278,12 +244,10 @@ def Train_And_Test_Data():
     
     print(str(Best_Model)+" : "+str(Greater_Accuracy*100))
 
-#########################################
-# Function name : check_input
-# Description :  function is user for checking Diabities or Not using model which is in the pickle file
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+
+# check_input
+# function is user for checking Diabities or Not using model which is in the pickle file
+
 def check_input(data):
     model = None
     model = joblib.load('model.pkl')
@@ -294,12 +258,7 @@ def check_input(data):
     return op[0]  
 
 
-#########################################
-# Function name : main
-# Description :  Main function from where execution starts
-# Author : Abhishek V Dahiphale
-# Date : 03/04/2022
-#########################################
+
 def main():
     print("-------Diabities Predictor----")
     G_Accuracy = 0.00
@@ -314,10 +273,6 @@ def main():
 
              
 
-
-#########################################
-# Application starter
-#########################################
 if __name__ == "__main__":
     main()
    
